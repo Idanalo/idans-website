@@ -1,1 +1,215 @@
-/* Your styles go here */
+:root {
+  --header-bg: #4173b2;
+  --menu-mobile-bg: #b0ccf0;
+  --text-main: #333333;
+  --text-muted: #888888;
+  --link-color: #3b71ca;
+  --btn-bg: #4477b8;
+  --btn-hover: #366299;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  color: var(--text-main);
+  direction: rtl;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Section */
+.site-header {
+  background-color: var(--header-bg);
+  color: #ffffff;
+}
+
+.header-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-btn img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+}
+
+/* Main Body Content - יישור לימין */
+.main-content {
+  max-width: 650px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+  text-align: right; 
+  flex: 1;
+}
+
+.main-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: right;
+}
+
+.text-content p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #444444;
+  text-align: right;
+}
+
+.text-content a {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+/* Form Styling - הצמדה לימין */
+.form-section {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.form-section label {
+  font-size: 0.95rem;
+  color: #555555;
+}
+
+.form-section input {
+  width: 100%;
+  max-width: 280px;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  text-align: right;
+  font-family: inherit;
+}
+
+.form-section button {
+  width: 100%;
+  max-width: 280px;
+  padding: 0.7rem;
+  background-color: var(--btn-bg);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s;
+}
+
+.form-section button:hover {
+  background-color: var(--btn-hover);
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Mobile Drawer Styles - תפריט באפקט Fade */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--menu-mobile-bg);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    
+    /* Fade In/Out הגדרות */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+
+  .site-nav.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .menu-close-btn {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    display: block;
+  }
+
+  .menu-close-btn img {
+    filter: brightness(0);
+    width: 24px;
+    height: 24px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 8rem;
+  }
+
+  .nav-links a {
+    color: #222222; 
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+}
